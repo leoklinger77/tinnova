@@ -1,0 +1,10 @@
+package services;
+
+public interface VoterServiceInterface {
+	
+	public void calcTotalValid();
+	
+	public void calcWhiteTotalValid();
+	
+	public void calcNullTotalValid();
+}

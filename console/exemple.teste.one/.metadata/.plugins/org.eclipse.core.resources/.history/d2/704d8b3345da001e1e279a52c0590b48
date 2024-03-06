@@ -1,0 +1,5 @@
+package eleitores.entities;
+
+public class Voter {
+
+}

@@ -1,0 +1,8 @@
+package entities;
+
+public class Voter {
+
+	public void calcTotalValid() {
+		
+	}
+}

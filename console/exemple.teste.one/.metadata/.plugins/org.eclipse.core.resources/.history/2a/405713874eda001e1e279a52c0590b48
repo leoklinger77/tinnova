@@ -1,0 +1,28 @@
+package entities;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+public class Voter {
+
+	private ArrayList<VoterType> listVoter = new ArrayList<VoterType>();
+	
+	public Voter() {
+		Random random = new Random();
+		listVoter.add(null);
+	}
+	public void calcTotalValid() {
+		
+	}
+	
+	public void calcWhiteTotalValid() {
+		
+	}
+	
+	public void calcNullTotalValid() {
+		
+	}
+}
+
+
+ 

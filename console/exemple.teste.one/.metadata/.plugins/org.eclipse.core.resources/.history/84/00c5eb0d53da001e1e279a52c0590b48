@@ -1,0 +1,52 @@
+package entities;
+
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
+public class Voter {
+
+	private ArrayList<VoterType> listVoter = new ArrayList<VoterType>();
+	
+	public Voter() {
+		for(int i = 0; i < 800; i++) {
+			listVoter.add(VoterType.valid);
+		}
+		for(int i = 0; i < 150; i++) {	
+			listVoter.add(VoterType.white);
+		}
+		for(int i = 0; i < 50; i++) {
+			listVoter.add(VoterType.nullo);
+		}		
+	}
+	
+	
+	public double calcTotalValid() {
+		var total = listVoter.size();
+		var totalValid = listVoter.stream()
+									.filter(t -> t==VoterType.valid)
+									.collect(Collectors.toList());
+		
+		return total / totalValid.size();
+	}
+	
+	public double calcWhiteTotalValid() {
+		var total = listVoter.size();
+		var totalValid = listVoter.stream()
+									.filter(t -> t.equals(VoterType.white))
+									.collect(Collectors.toList());
+		
+		return total / totalValid.size();
+	}
+	
+	public double calcNullTotalValid() {
+		var total = listVoter.size();
+		var totalValid = listVoter.stream()
+									.filter(t -> t==VoterType.nullo)
+									.collect(Collectors.toList());
+		
+		return total / totalValid.size();
+	}
+}
+
+
+ 

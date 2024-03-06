@@ -1,0 +1,16 @@
+package entities;
+
+public class Voter {
+
+	public void calcTotalValid() {
+		
+	}
+	
+	public void calcWhiteTotalValid() {
+		
+	}
+	
+	public void calcNullTotalValid() {
+		
+	}
+}

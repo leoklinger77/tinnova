@@ -1,0 +1,6 @@
+INDEX VERSION 1.134+C:\Users\kling\eclipse-workspace\exemple.teste.one\.metadata\.plugins\org.eclipse.jdt.core
+3464749183.index
+2466300174.index
+2083064007.index
+1075990267.index
+1865797976.index

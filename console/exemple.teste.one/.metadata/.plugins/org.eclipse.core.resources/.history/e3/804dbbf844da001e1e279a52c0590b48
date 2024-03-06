@@ -1,0 +1,5 @@
+package eleitores;
+
+public class Voter {
+
+}

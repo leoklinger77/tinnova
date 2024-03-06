@@ -1,0 +1,16 @@
+package eleitores;
+
+import entities.Voter;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Voter voter = new Voter();
+		
+		System.out.println("Total votos validos em relação ao total " + voter.calcTotalValid());
+		System.out.println("Total votos validos em relação ao total " + voter.calcWhiteTotalValid());
+		System.out.println("Total votos validos em relação ao total " + voter.calcNullTotalValid());
+ 	}
+
+}

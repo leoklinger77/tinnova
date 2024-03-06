@@ -1,0 +1,23 @@
+package services;
+
+public class VoterService implements VoterServiceInterface {
+
+	@Override
+	public void calcTotalValid() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void calcWhiteTotalValid() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void calcNullTotalValid() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

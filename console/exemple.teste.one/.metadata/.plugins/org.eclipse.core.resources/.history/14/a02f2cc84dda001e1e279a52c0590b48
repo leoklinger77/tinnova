@@ -1,0 +1,27 @@
+package entities;
+
+import java.util.List;
+
+public class Voter {
+
+	private List<VoterType> ListVoter = new ArrayList<VoterType>();
+	
+	public void calcTotalValid() {
+		
+	}
+	
+	public void calcWhiteTotalValid() {
+		
+	}
+	
+	public void calcNullTotalValid() {
+		
+	}
+}
+
+public enum VoterType{
+	valid,
+	white,
+	nullo
+}
+ 

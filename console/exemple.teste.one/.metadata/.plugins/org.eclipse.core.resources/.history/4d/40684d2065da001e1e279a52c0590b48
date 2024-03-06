@@ -1,0 +1,27 @@
+package multiplos;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite um número: ");
+        int limite = scanner.nextInt();
+
+        int soma = 0;
+
+        for (int i = 1; i <= limite; i++) {
+            if (i % 3 == 0 || i % 5 == 0) {
+                soma += i;
+            }
+        }
+
+        System.out.println("A soma de todos os múltiplos de 3 ou 5 até " + limite + " é: " + soma);
+
+        scanner.close();
+	}
+
+}

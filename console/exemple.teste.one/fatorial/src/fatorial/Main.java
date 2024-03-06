@@ -1,0 +1,22 @@
+package fatorial;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int numero = 5;
+		calcularFatorial(numero);
+	}
+	
+	public static long calcularFatorial(int numero) {
+        if (numero == 0) {
+            System.out.println("Fatorial de 0 é 1.");
+            return 1;
+        } else {
+            long fatorial = numero * calcularFatorial(numero - 1);
+            System.out.println("Fatorial de " + numero + " é " + fatorial + ".");
+            return fatorial;
+        }
+    }
+
+}
