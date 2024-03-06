@@ -1,11 +1,14 @@
 package com.vehicleregistration.vehicleregistration.services;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class NotificationServicesImpl implements NotificationServices {
     private List<String> notification = new ArrayList<String>();
     @Override

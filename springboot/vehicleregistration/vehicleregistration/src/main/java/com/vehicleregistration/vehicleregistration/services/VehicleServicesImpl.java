@@ -23,43 +23,84 @@ public class VehicleServicesImpl implements VehicleServices {
 
     @Override
     public List<Vehicle> getAllVehicles(String marca, Integer ano, String cor) {
-        if (marca == null && ano == null && cor == null) {
-            return this.vehicleRepository.findAll();
-        }
-
         return this.vehicleRepository.findAll().stream()
                 .filter(vehicle -> (marca == null || vehicle.getMarca().equals(marca)))
-                .filter(vehicle -> (ano == null || vehicle.getAno() == ano))
-                .filter(vehicle -> (cor == null || vehicle.getCor().equals(cor)))
+                .filter(vehicle -> (ano == null || vehicle.getAno().equals(ano)))
+                .filter(vehicle -> (cor == null || vehicle.getCor().equalsIgnoreCase(cor)))
                 .collect(Collectors.toList());
     }
 
     @Override
     public Vehicle getById(UUID id) {
-        return this.vehicleRepository.findAll().stream()
+        var result = this.vehicleRepository.findAll().stream()
                 .filter(vehicle -> vehicle.getId().equals(id))
                 .findFirst()
                 .orElse(null);
+
+        if(result == null){
+            notificationServices.addNotification("Id nao encontrado");
+        }
+        return  result;
     }
 
     @Override
     public boolean create(String veiculo, String marca, String cor, Integer ano) {
+        var exit = this.vehicleRepository.findAll().stream()
+                .filter(vehicle -> (vehicle.getVeiculo().equals(veiculo)))
+                .findFirst();
+
+        if(exit.isPresent()){
+            notificationServices.addNotification("Veiculo ja cadastrado");
+            return  false;
+        }
+
         var model = new Vehicle(veiculo,marca,  cor, ano);
-        return false;
+        vehicleRepository.save(model);
+        return true;
     }
 
     @Override
     public boolean update(UUID id, String veiculo, String marca, String cor, Integer ano) {
-        return false;
+        Vehicle exit = getById(id);
+
+        if(exit == null){
+            notificationServices.addNotification("Id nao localizado");
+            return  false;
+        }
+
+        exit.setVeiculo(veiculo);
+        exit.setMarca(marca);
+        exit.setCor(cor);
+        exit.setAno(ano);
+
+        vehicleRepository.save(exit);
+        return true;
     }
 
     @Override
     public boolean updateName(UUID id,String veiculo) {
-        return false;
+        Vehicle exit = getById(id);
+
+        if(exit == null){
+            notificationServices.addNotification("Id nao localizado");
+            return  false;
+        }
+
+        exit.setVeiculo(veiculo);
+
+        vehicleRepository.save(exit);
+        return true;
     }
 
     @Override
     public boolean delete(UUID id) {
-        return false;
+        Vehicle exit = getById(id);
+
+        if(exit == null){
+            notificationServices.addNotification("Id nao localizado");
+            return  false;
+        }
+        vehicleRepository.delete(exit);
+        return true;
     }
 }
